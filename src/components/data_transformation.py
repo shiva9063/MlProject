@@ -50,8 +50,11 @@ class DataTransformation:
         try:
             train_df=pd.read_csv(train_path)
             test_df=pd.read_csv(test_path)
+
             logging.info('read train and test data completed')
+
             logging.info('obtaining preprocessing object')
+
             preprocessing_obj=self.get_data_transformer_object()
             target_column_name='math_score'
             numerical_columns=['math_score', 'reading_score', 'writing_score']
@@ -65,7 +68,7 @@ class DataTransformation:
             logging.info(f'applying preproceesing on training adn testing dat set')
 
             input_feature_train_arr=preprocessing_obj.fit_transform(input_feature_train_df)
-            input_feature_test_arr=preprocessing_obj.fit_transform(input_feature_test_df)
+            input_feature_test_arr=preprocessing_obj.transform(input_feature_test_df)
 
             train_arr=np.c_[
                 input_feature_train_arr,np.array(target_feature_train_df)
@@ -85,7 +88,6 @@ class DataTransformation:
                 train_arr,
                 test_arr,
                 self.data_transformation_config.preprocessor_obj_file_path,
-
             )
         except Exception as e:
             raise CustomException(e,sys)
