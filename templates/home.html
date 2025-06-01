@@ -1,14 +1,58 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>student Performance</title>
+<style>
+    h1{
+        text-align: center;
+        color: green;
+    }
+    .form{
+        background-color: rgb(155, 211, 211);
+        border: 2px solid black;
+        border-radius: 10px;
+        box-shadow: black 3px 2px 3px 2px;
+        width: 50%;
+        height: 100%;
+        align-items: center;
+        margin-left: 25%;
+        
+    }
+    body{
+        background-color: lightblue;
+    }
+    .form-label{
+        
+            font-weight: bold;
+            color: #000;
+        }
+    .mb-38{
+        text-align: center;
+    }
+    .prediction-output{
+        text-align: center;
+        border: 2px solid black;
+        width: 50%;
+        margin-left: 25%;
+        box-shadow: black 2px 2px;
+        h2{
+            color: purple;
+        }
+    }
+</style>
+</head>
 <body>
     <div class="login">
-       <h1>Student Exam Performance Indicator</h1>
-   
-       <form action="{{ url_for('predict_datapoint')}}" method="post">
-        <h1>
+    <h1>Student Exam Performance Indicator</h1>
+
+    <form action="{{ url_for('predict_datapoint')}}" method="post" class='form'>
+        <h3>
             <legend>Student Exam Performance Prediction</legend>
-        </h1>
-        <div class="mb-3">
-            <label class="form-label">Gender</label>
+        </h3>
+        <div class="mb-31">
+            <label class="form-label">Gender    :</label>
             <select class="form-control" name="gender" placeholder="Enter you Gender" required>
                 <option class="placeholder" selected disabled value="">Select your Gender</option>
                 <option value="male">
@@ -19,8 +63,9 @@
                 </option>
             </select>
         </div>
-        <div class="mb-3">
-            <label class="form-label">Race or Ethnicity</label>
+        <br>
+        <div class="mb-32">
+            <label class="form-label">Race or Ethnicity:</label>
             <select class="form-control" name="race_ethnicity" placeholder="Enter you ethnicity" required>
                 <option class="placeholder" selected disabled value="">Select Ethnicity</option>
                 <option value="group A">
@@ -40,8 +85,9 @@
                 </option>
             </select>
         </div>
-        <div class="mb-3">
-            <label class="form-label">Parental Level of Education</label>
+        <br>
+        <div class="mb-33">
+            <label class="form-label">Parental Level of Education:</label>
             <select class="form-control" name="parental_level_of_education"
                 placeholder="Enter you Parent Education" required>
                 <option class="placeholder" selected disabled value="">Select Parent Education</option>
@@ -65,8 +111,9 @@
                 </option>
             </select>
         </div>
-        <div class="mb-3">
-            <label class="form-label">Lunch Type</label>
+        <br>
+        <div class="mb-34">
+            <label class="form-label">Lunch Type:</label>
             <select class="form-control" name="lunch" placeholder="Enter you Lunch" required>
                 <option class="placeholder" selected disabled value="">Select Lunch Type</option>
                 <option value="free/reduced">
@@ -77,8 +124,9 @@
                 </option>
             </select>
         </div>
-        <div class="mb-3">
-            <label class="form-label">Test preparation Course</label>
+        <br>
+        <div class="mb-35">
+            <label class="form-label">Test preparation Course:</label>
             <select class="form-control" name="test_preparation_course" placeholder="Enter you Course"
                 required>
                 <option class="placeholder" selected disabled value="">Select Test_course</option>
@@ -90,22 +138,29 @@
                 </option>
             </select>
         </div>
-        <div class="mb-3">
-            <label class="form-label">Writing Score out of 100</label>
+        <br>
+        <div class="mb-36">
+            <label class="form-label">Writing Score out of 100:</label>
             <input class="form-control" type="number" name="reading_score"
                 placeholder="Enter your Reading score" min='0' max='100' />
         </div>
-        <div class="mb-3">
-            <label class="form-label">Reading Score out of 100</label>
+        <br>
+        <div class="mb-37">
+            <label class="form-label">Reading Score out of 100:</label>
             <input class="form-control" type="number" name="writing_score"
                 placeholder="Enter your Reading Score" min='0' max='100' />
         </div>
-        <div class="mb-3">
+        <br>
+        <br>
+        <div class="mb-38">
             <input class="btn btn-primary" type="submit" value="Predict your Maths Score" required />
         </div>
     </form>
-    <h2>
-       THE  prediction is {{results}}
+    <br>
+    <div class="prediction-output">
+        <h2>
+    THE  prediction is : {{results}}
     </h2>
-   <body>
+    </div>
+<body>
 </html>
